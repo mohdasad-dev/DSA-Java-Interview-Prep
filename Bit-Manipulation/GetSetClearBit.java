@@ -36,11 +36,19 @@ public class GetSetClearBit{
         int bitMask = (~0)<<i;
         return n & bitMask;
     }
+
+    public static int clearBitsinRange(int n, int i, int j){
+        int a = ((~0) << (j+1));
+        int b = (1<<i)-1;
+        int bitMask = a | b;
+        return n & bitMask;
+    }
     public static void main(String arg[]){
         System.out.println(getIthBit(10, 2));
         System.out.println(setIthBit(10, 2));
         System.out.println(clearIthBit(10, 1));
         System.out.println(updateIthBit(10, 2, 1));
         System.out.println(clearIBit(15, 2));
+        System.out.println(clearBitsinRange(10, 2, 4));
     }
 }
