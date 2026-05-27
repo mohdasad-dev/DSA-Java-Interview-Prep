@@ -198,20 +198,66 @@
 
 // 10). What would be the output of the following code.
 
-public class Practices{
-    public static void main(String arg[]){
-      Test t = new Test();
-      t.changeB();
-      System.out.println(Test.a+Test.b);
-    }
-}
+// public class Practices{
+//     public static void main(String arg[]){
+//       Test t = new Test();
+//       t.changeB();
+//       System.out.println(Test.a+Test.b);
+//     }
+// }
 
-class Test {
-    static int a = 10;
-    static int b;
-    static void changeB(){
-        b = a * 3;
-    }
-}
+// class Test {
+//     static int a = 10;
+//     static int b;
+//     static void changeB(){
+//         b = a * 3;
+//     }
+// }
 
 // Answer:- 40
+
+// 11). Print the sum, difference and product of two complex numbers by creating a classnamed 'Complex' with separate methods for each operation whose real and imaginary parts  are entered by the user
+
+
+import java.util.*;
+public class Practices{
+    public static void main(String arg[]){
+      Complex c = new Complex(4, 5);
+      Complex d = new Complex(5, 9);
+      Complex e = Complex.add(c, d);
+      Complex f = Complex.diff(c, d);
+      Complex g = Complex.product(c, d);
+      e.printComplex();
+      f.printComplex();
+      g.printComplex();
+    }
+}
+
+
+class Complex{
+    int real;
+    int imag;
+    public Complex(int r,int i){
+        real = r;
+        imag = i;
+    }
+    public static Complex add(Complex a,Complex b){
+        return new Complex((a.real+b.real),(a.imag+b.imag));
+    }
+    public static Complex diff(Complex a,Complex b){
+        return new Complex((a.real-b.real),(a.imag-b.imag));
+    }
+    public static Complex product(Complex a,Complex b){
+        return new Complex(((a.real*b.real)-(a.imag*b.imag)),((a.real*b.imag)+(a.imag*b.real)));
+    }
+    public void printComplex(){
+        if(real == 0 && imag != 0){
+            System.out.println(imag+"i");
+        }
+        else if(imag == 0 && real != 0){
+            System.out.println(real);
+        }else{
+            System.out.println(real+"+"+imag+"i");
+        }
+    }
+}
