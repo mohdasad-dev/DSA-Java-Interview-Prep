@@ -33,12 +33,13 @@ public class SudokuSolver{
 
     public static boolean sudokuSolver(int sudoku[][], int row, int col){
         // base 
-        if(row == 9 && col == 0){
+        if(row == 9){
             return true;
-        }else if(row == 9){
-            return false;
         }
 
+        // if(row == 9 && col == 0){
+        //     return true;
+        // }
         // recursion
         int nextRow = row, nextCol = col+1;
         if(col+1 == 9){
